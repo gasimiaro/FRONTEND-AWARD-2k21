@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>FEA</title>
+</head>
+<body >
+            <div id="miakatra" onclick="miakatra()">
+                <section id="accueil">
+                    <div class="container">
+                        <div class="text">
+                            <h5>ILAY</h5>
+                            <h2>NOFIKO</h2>
+                        </div>
+                    </div>
+                    <div class="contenu">
+                        <div class="ligne">
+                            
+                        </div>
+                        <div class="ligne1">
+
+                        </div>
+                    </div>
+                </section>
+        </div>
+    <section id="page1">
+        <div class="text">
+         <h5 class="h5">ILAY</h5>
+            <h2 class="h2">NOFIKO</h2> 
+        </div>
+    </section>
+    <div id="tsipika">
+    <div class="scroll-down">
+        <a href="#farany" >  <p>scroll-down</p></a>
+        <div class="contenu1">
+            <div class="colonne">
+            </div> 
+        </div>
+    </div>
+   
+        <a href="#farany"> <div class="colonne1"></div></a>
+        <a href="#miakatra"><div class="colonne2"></div></a>
+    </div>
+    <section class="page2" id="farany">
+    <p class="tutorial">WATCH <br>TUTORIAL</p>       
+    <p class="tutorial">WATCH <br>TRAILER</p>
+   <div class="sary1">
+        <div class="container">
+                <div class="slides" onclick="miangeza()" >
+                        <div class="slide">
+                                <img src="video_thumbnail.jpg" alt="">
+                            </div>
+                    <div class="slide">
+                        <img src="slide_1.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="slide_2.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="slide_3.jpg" alt="">
+                    </div>
+                </div>
+                </div>
+   </div>
+   <div id="sary2">
+    <div class="container1">
+            <div class="slides1" onclick="miangeza()">                  
+                <div class="slide1">
+                    <img src="slide_1.jpg" alt="">
+                </div>
+                <div class="slide1">
+                    <img src="slide_2.jpg" alt="">
+                </div>
+                <div class="slide1">
+                    <img src="slide_3.jpg" alt="">
+                </div>
+            </div>
+            </div>
+</div>
+
+
+   <div class="slide-controls">
+    <span id="tiret1"></span>  <button id="prev-btn"> Prev</button>
+        <button id="next-btn">Next</button> <span id="tiret2"></span>
+        </div>
+    </div>
+        <div id="sary3">
+                <div class="container2">
+                    <div class="slides2">
+                        <div class="slide2">
+                            <img src="slide_1.jpg" alt="">
+                        </div>
+                        <div class="slide2">
+                            <img src="slide_2.jpg" alt="">
+                        </div>
+                        <div class="slide2">
+                            <img src="slide_3.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="slide-controls1">
+                          <button id="prev-btn1"> &lt;</button>
+                            <button id="next-btn1">&gt;</button> 
+                            </div>
+                    <button id="close" onclick="miakely()">Close</button>
+                </div>
+        </div>
+</section>
+   <script>
+       function miakatra(){           
+        alert("👀this page is not responsive,sorry!👀");
+
+           var page0=document.getElementById('miakatra');
+            page0.style.opacity='0';
+            var page1=document.getElementById('page1');
+            page1.style.display ='flex';
+            var page2=document.getElementById("farany");
+            page2.style.display="inherit";
+            var scroll=document.getElementById("tsipika");
+            scroll.style.opacity='1';
+            scroll.style.display='block';
+
+
+const slide = document.querySelector('.slides');
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
+const interval = 1000;
+
+nextBtn.addEventListener('mouseover',function(){document.getElementById('tiret2').style.transform=`translateX(5px)`;});
+prevBtn.addEventListener('mouseover',function(){document.getElementById('tiret1').style.transform=`translateX(-5px)`});
+nextBtn.addEventListener('mouseout',function(){document.getElementById('tiret2').style.transform=`translateX(0px)`;});
+prevBtn.addEventListener('mouseout',function(){document.getElementById('tiret1').style.transform=`translateX(0px)`});
+
+let slides =  document.querySelectorAll('.slide');
+let index =0;
+const slideWidth = (slides[index].clientWidth);
+
+
+const startSlide = ()=>{
+    setInterval( () => {
+      moveToNextSlide();
+    },interval);
+};
+var i=0;
+const moveToNextSlide=() => {
+    
+    if(i<2)
+    {   index++;
+        slide.style.transform = `translateX(${-slideWidth * index}px)`;
+        slide.style.transition = '.7s';
+        i++;
+    }
+  
+}
+const moveToPrevSlide=() => {
+    if(i>0){
+        index--;
+        slide.style.transform = `translateX(${-slideWidth * index}px)`;
+        slide.style.transition = '.7s';
+        i--;
+    }  
+}
+nextBtn.addEventListener('click',moveToNextSlide);
+prevBtn.addEventListener('click',moveToPrevSlide);
+
+//..................................................................
+const slide1 = document.querySelector('.slides1');
+const nextBtn1 = document.getElementById('next-btn');
+const prevBtn1 = document.getElementById('prev-btn');
+const interval1 = 1000;
+
+let slides1 =  document.querySelectorAll('.slide1');
+let index1 =0;
+
+const slideWidth1 = (slides1[index1].clientWidth);
+
+
+const startSlide1 = ()=>{
+    setInterval( () => {
+      moveToNextSlide1();
+    },interval1);
+};
+var a=0;
+const moveToNextSlide1=() => {
+    if (a<2)
+    {    index1++;
+        slide1.style.transform = `translateX(${-slideWidth1 * index1}px)`;
+        slide1.style.transition = '.7s';
+        a++;
+    }
+}
+const moveToPrevSlide1=() => {
+    if(a>0)
+    {    index1--;
+        slide1.style.transform = `translateX(${-slideWidth1 * index1}px)`;
+        slide1.style.transition = '.7s';
+        a--;
+    }
+}
+
+
+nextBtn1.addEventListener('click',moveToNextSlide1);
+prevBtn1.addEventListener('click',moveToPrevSlide1);
+//.............................................................................
+const slide2 = document.querySelector('.slides2');
+const nextBtn2 = document.getElementById('next-btn1');
+const prevBtn2 = document.getElementById('prev-btn1');
+const interval2 = 1000;
+
+let slides2 =  document.querySelectorAll('.slide2');
+let index2 =0;
+
+const slideWidth2 = (slides2[index2].clientWidth);
+
+
+const startSlide2 = ()=>{
+    setInterval( () => {
+      moveToNextSlide2();
+    },interval2);
+};
+var b=0;
+const moveToNextSlide2=() => {
+    if (b<2)
+    {    index2++;
+        slide2.style.transform = `translateX(${-slideWidth2 * index2}px)`;
+        slide2.style.transition = '.7s';
+        b++;
+    }
+}
+const moveToPrevSlide2=() => {
+    if(b>0)
+    {    index2--;
+        slide2.style.transform = `translateX(${-slideWidth2 * index2}px)`;
+        slide2.style.transition = '.7s';
+        b--;
+    }
+}
+
+
+nextBtn2.addEventListener('click',moveToNextSlide2);
+prevBtn2.addEventListener('click',moveToPrevSlide2);
+       }
+     
+     function miangeza(){        
+
+         var sary=document.getElementById('sary3');
+         var close=document.getElementById('close');
+         sary.style.visibility="visible";
+
+     }
+     function miakely(){
+        var sary3=document.getElementById('sary3');
+        sary3.style.visibility="hidden";
+
+     }
+   </script>
+</body>
+
+
+</html>
